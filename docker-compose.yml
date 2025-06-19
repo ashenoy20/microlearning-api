@@ -1,0 +1,28 @@
+version: "3.8"
+
+services:
+  mongodb:
+    image: mongo:8.0.10
+    container_name: microlearn-local-db
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: microlearn
+      MONGO_INITDB_ROOT_PASSWORD: microlearn
+      MONGO_INITDB_DATABASE: microlearn
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+  app:
+    build: .
+    container_name: microlearn-local-api
+    depends_on:
+      - mongodb
+    environment:
+      MONGODB_URI: mongodb://microlearn:microlearn@mongodb:27017/microlearn?authSource=admin
+    ports:
+      - "8000:8000"
+
+volumes:
+  mongo_data:
