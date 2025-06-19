@@ -3,43 +3,21 @@ A Python FastAPI that powers a microlearning application
 
 # Instructions to setup locally
 
-## Make sure to have [uv](https://docs.astral.sh/uv/) installed
+## Install [Docker Desktop](https://www.docker.com/products/docker-desktop/) and create an account
 
-### MacOS (Homebrew)
+## Pull down the Github Repository
 ```
-brew install uv
-```
-
-### Windows (Powershell)
-```
-powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+git clone https://github.com/ashenoy20/microlearning-api.git
 ```
 
-## Install Python 3.12 and activate the virtual env
+## Run application
 
-
-### MacOS
-```
-uv python install 3.12 && source .venv/bin/activate
-```
-### Windows (Powershell)
-```
-uv python install 3.12; .venv\Scripts\Activate.ps1
-```
-
-## Install Dependencies
+Make sure you are in the top level of the directory and run the following
 
 ```
-uv install
+docker-compose up --build   
 ```
-
-## Run FastAPI Server
-
-```
-uv run uvicorn main:app --reload
-```
-
-
+This will build both the local mongodb database and FastAPI application. Confirm by navigating [here](http://localhost:8000/docs)
 
 
 
