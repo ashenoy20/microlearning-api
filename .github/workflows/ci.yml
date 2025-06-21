@@ -21,7 +21,9 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install -r requirements.txt || echo "No requirements.txt found, skipping..."
-          
-      - name: Skip tests
-        run: echo "No tests to run at this time."
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pytest pytest-asyncio httpx
+
+      - name: Run tests
+        run: pytest
