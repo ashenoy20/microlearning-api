@@ -15,7 +15,8 @@ services:
       - mongo_data:/data/db
 
   app:
-    build: .
+    build:
+      context: ./backend
     container_name: microlearn-local-api
     depends_on:
       - mongodb
@@ -23,6 +24,15 @@ services:
       MONGODB_URI: mongodb://microlearn:microlearn@mongodb:27017/microlearn?authSource=admin
     ports:
       - "8000:8000"
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: microlearn-local-frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - app
 
 volumes:
   mongo_data:

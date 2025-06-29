@@ -20,11 +20,17 @@ RUN uv sync --frozen --no-dev
 # Create non-root user for security
 RUN groupadd -r appuser && useradd -r -g appuser appuser
 
+# ✅ Set cache dir and make it writable by appuser
+ENV UV_CACHE_DIR=/tmp/.cache/uv
+RUN mkdir -p /tmp/.cache/uv && chown -R appuser:appuser /tmp/.cache
+
 # Copy application code
 COPY . .
 
 # Change ownership to non-root user
 RUN chown -R appuser:appuser /app
+
+# Switch to non-root user
 USER appuser
 
 # Expose port 8000 
