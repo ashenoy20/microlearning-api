@@ -62,10 +62,11 @@ jobs:
         with:
           images: microlearningapp/microlearningapp-api
 
-      - name: Build and Push Docker image
+      - name: Build and Push Backend Docker image
         uses: docker/build-push-action@v5
         with:
-          context: .
+          context: ./backend             # 👈 use backend folder
+          file: ./backend/Dockerfile     # 👈 explicitly define Dockerfile
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
