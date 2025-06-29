@@ -1,0 +1,65 @@
+.registerContainer {
+  width: 100%;
+  max-width: 1000px; /* increased from 600px */
+  margin: 3rem auto;
+  padding: 2.5rem 3rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
+}
+
+.registerForm {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-top: 1.25rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+input {
+  margin-top: 0.5rem;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 1.5px solid #ddd;
+  border-radius: 8px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  background-color: #fdfdfd;
+}
+
+input:focus {
+  outline: none;
+  border-color: #6366f1; /* Indigo-500 */
+  box-shadow: 0 0 8px rgba(99, 102, 241, 0.3);
+}
+
+button {
+  margin-top: 2rem;
+  padding: 0.9rem 1rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(135deg, #4ade80, #22c55e); /* green gradient */
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(34, 197, 94, 0.3);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+  background: linear-gradient(135deg, #16a34a, #15803d); /* darker green gradient */
+  box-shadow: 0 8px 20px rgba(22, 163, 74, 0.4);
+}
+
+.error {
+  color: #dc2626; /* red-600 */
+  margin-top: 0.75rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
