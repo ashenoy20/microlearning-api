@@ -3,6 +3,7 @@ from httpx import AsyncClient
 from main import app
 from httpx import ASGITransport
 
+
 @pytest.mark.asyncio
 async def test_read_root():
     transport = ASGITransport(app=app)
