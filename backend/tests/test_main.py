@@ -2,8 +2,6 @@ import pytest
 from httpx import AsyncClient
 from backend.main import app
 from httpx import ASGITransport
-from backend.main import app
-
 
 @pytest.mark.asyncio
 async def test_read_root():
